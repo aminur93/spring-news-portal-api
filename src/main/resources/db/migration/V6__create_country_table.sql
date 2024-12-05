@@ -1,0 +1,58 @@
+-- Create Country table
+CREATE TABLE countries (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name_en VARCHAR(100) NOT NULL,
+    name_bn VARCHAR(100) NOT NULL,
+    status TINYINT(1) DEFAULT 0,
+    created_by INT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Create City table
+CREATE TABLE cities (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    country_id INT NOT NULL,
+    name_en VARCHAR(100) NOT NULL,
+    name_bn VARCHAR(100) NOT NULL,
+    status TINYINT(1) DEFAULT 0,
+    created_by INT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Create Division table
+CREATE TABLE divisions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    city_id INT NOT NULL,
+    name_en VARCHAR(200) NOT NULL,
+    name_bn VARCHAR(200) NOT NULL,
+    status TINYINT(1) DEFAULT 0,
+    created_by INT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Create District table
+CREATE TABLE districts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    division_id INT NOT NULL,
+    name_en VARCHAR(200) NOT NULL,
+    name_bn VARCHAR(200) NOT NULL,
+    status TINYINT(1) DEFAULT 0,
+    created_by INT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Create UpZilla table
+CREATE TABLE upzillas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    district_id INT NOT NULL,
+    name_en VARCHAR(100) NOT NULL,
+    name_bn VARCHAR(100) NOT NULL,
+    status TINYINT(1) DEFAULT 0,
+    created_by INT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
